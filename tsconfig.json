@@ -13,6 +13,20 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./src/shared/components/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@public/*": [
+        "./src/public/*"
+      ] 
+    },
 
     /* Linting */
     "strict": true,
@@ -21,5 +35,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

@@ -1,14 +1,15 @@
 import React from 'react'
-import { Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import PublicModules from '../public/auth';
+
+
 
 const MainRouter = () => {
   return (
     <Routes>
-
-        
-
+      <Route path='/*' element={<PublicModules />} />
     </Routes>
   )
 }
 
-export default MainRouter
+export default MainRouter;
