@@ -19,19 +19,16 @@ const TextField:FC<ITextFieldProps> = (props) => {
     }
 
     useEffect(() => {
-        if (meta.touched && meta.error) {
-            setIsInvalid(true)
-        }else{
-            setIsInvalid(false)
-        }
+        console.log({ field: field.name, touched: meta.touched, error: meta.error });
     }, [meta])
 
     const setup: InputProps = {
+        id: `${ props.name }-id`,
         label: props.label,
         placeholder: props.placeholder,
         onValueChange: handleChange,
-        isInvalid: isInvalid,
-        errorMessage: meta.error,
+        isInvalid: meta.error && meta.touched === true ? true : false,
+        errorMessage: meta.touched === true ? meta.error : '',
         size: props.size,
         fullWidth: true,
         labelPlacement: 'outside',

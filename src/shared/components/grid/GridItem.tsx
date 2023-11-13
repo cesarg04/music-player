@@ -1,4 +1,5 @@
-import { FC } from "react"
+import { breakpointsStyles } from "@/shared/const/path/styles/breakpoints-grid.const";
+import { FC, useMemo } from "react"
 
 interface IGridItemProps{
     span?: number;
@@ -12,17 +13,20 @@ interface IGridItemProps{
 
 const GridItem:FC<IGridItemProps> = (props) => {
 
+    const styles = useMemo(() => {
+        let stl = [];
+        if (props.sm) stl.push(breakpointsStyles.sm[props.sm] )
+        if (props.md) stl.push(breakpointsStyles.md[props.md] )
+        if (props.lg) stl.push(breakpointsStyles.lg[props.lg] )
+        if (props.xl) stl.push(breakpointsStyles.xl[props.xl] )
+        if(props.styles) stl.push(props.styles)
+        return stl.join(' ')
+        
+    }, [props])
 
     return (
         <div 
-            className={`
-            col-span-12
-            ${ props.sm ? `sm:col-span-${ props.sm }` : '' }
-            ${ props.md ? `md:col-span-${ props.md }` : '' }
-            ${ props.lg ? `lg:col-span-${ props.lg }` : '' }
-            ${ props.xl ? `xl:col-span-${ props.xl }` : '' }
-            ${ props.styles ? `${ props.styles }` : '' }
-            `}
+            className={styles}
         >
             { props.children }
         </div>

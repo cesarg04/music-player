@@ -54,7 +54,11 @@ export default {
       },
       fontFamily: {
         main: ['Josefin Sans', 'sans-serif'],
-        roleway: ['Raleway', 'sans-serif']
+        roleway: ['Raleway', 'sans-serif'],
+        Arimo: ['Arimo', 'sans-serif'],
+        Inter: ['Inter', 'sans-serif'],
+        
+
       }
     },
   },

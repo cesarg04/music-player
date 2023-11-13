@@ -1,4 +1,6 @@
-import { FC } from "react";
+import { colsStyles, rowStyles } from "@/shared/const/path/styles/grid-cols.const";
+import { FC, useMemo } from "react";
+import {  alignItemsStyles, justifyItemsStyles, justifyStyles } from "./util/grid.styles";
 
 interface IGridContainerProps {
     cols?: number;
@@ -7,20 +9,27 @@ interface IGridContainerProps {
     gap?: number;
     justifyContent?: 'normal' | 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch';
     alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-    sx?: string;
+    styles?: string;
+    justifyItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 }
 
 const GridContainer: FC<IGridContainerProps> = (props) => {
+
+    const styles = useMemo(() => {
+        let stlArr = []
+        if (props.cols) stlArr.push(colsStyles[props.cols])
+        if (props.rows) stlArr.push(rowStyles[props.rows])
+        if (props.justifyContent) stlArr.push(justifyStyles[props.justifyContent])
+        if (props.justifyItems) stlArr.push(justifyItemsStyles[props.justifyItems])
+        if (props.alignItems) stlArr.push(alignItemsStyles[props.alignItems])
+        if (props.styles) stlArr.push(props.styles)
+        console.log(stlArr);
+        return stlArr.join(' ')
+    }, [props])
+
     return (
         <div className={
-            `   w-full
-                grid 
-                grid-cols-${props.cols ?? 12}
-                grid-rows-${props.rows}
-                gap-${props.gap ?? '0'}
-                justify-${props.justifyContent ?? 'normal'}
-                items-${props.alignItems ?? 'start'}
-                ${props.sx}
+            `   w-full grid px-8 ${ styles }
             `} >
             {props.children}
         </div>
