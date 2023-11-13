@@ -7,7 +7,8 @@ const alias_path = [
 		find: "@components",
 		replacement: resolve(__dirname, "src/shared/components"),
 	},
-    { find: '@public', replacement: resolve(__dirname, "src/public") }
+    { find: '@public', replacement: resolve(__dirname, "src/public") },
+    { find: '@assets', replacement: resolve(__dirname, "src/assets") }
 ]
 
 

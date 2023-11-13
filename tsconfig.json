@@ -25,7 +25,10 @@
       ],
       "@public/*": [
         "./src/public/*"
-      ] 
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ]  
     },
 
     /* Linting */
