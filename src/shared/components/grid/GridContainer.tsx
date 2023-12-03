@@ -23,7 +23,6 @@ const GridContainer: FC<IGridContainerProps> = (props) => {
         if (props.justifyItems) stlArr.push(justifyItemsStyles[props.justifyItems])
         if (props.alignItems) stlArr.push(alignItemsStyles[props.alignItems])
         if (props.styles) stlArr.push(props.styles)
-        console.log(stlArr);
         return stlArr.join(' ')
     }, [props])
 

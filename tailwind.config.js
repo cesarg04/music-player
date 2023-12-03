@@ -14,20 +14,20 @@ export default {
         screens: {
           'sm': '640px',
           // => @media (min-width: 640px) { ... }
-    
+
           'md': '850px',
           // => @media (min-width: 850px) { ... }
-    
+
           'lg': '1024px',
           // => @media (min-width: 1024px) { ... }
-    
+
           'xl': '1280px',
           // => @media (min-width: 1280px) { ... }
-    
+
           '2xl': '1536px',
           // => @media (min-width: 1536px) { ... }
         },
-        
+
       },
       colors: {
         white: "#FFFFFF",
@@ -50,14 +50,43 @@ export default {
           200: '#A2E9C1',
           300: '#74DFA2',
           400: '#45D483'
+        },
+        primary: {
+          '50': '#ebf4ff',
+          '100': '#dbeaff',
+          '200': '#bed7ff',
+          '300': '#97bbff',
+          '400': '#6e93ff',
+          '500': '#4c6cff',
+          '600': '#243aff',
+          '700': '#202fe2',
+          '800': '#1d2cb6',
+          '900': '#202d8f',
+          '950': '#131953',
+          DEFAULT: '#4c6cff'
+        },
+        danger: {
+          '50': '#fef2f2',
+          '100': '#fee2e2',
+          '200': '#fecaca',
+          '300': '#fba6a6',
+          '400': '#f77272',
+          '500': '#ec3232',
+          '600': '#db2727',
+          '700': '#b81d1d',
+          '800': '#981c1c',
+          '900': '#7e1e1e',
+          '950': '#450a0a',
+          "DEFAULT": '#ec3232'
         }
+
       },
       fontFamily: {
         main: ['Josefin Sans', 'sans-serif'],
         roleway: ['Raleway', 'sans-serif'],
         Arimo: ['Arimo', 'sans-serif'],
         Inter: ['Inter', 'sans-serif'],
-        
+
 
       }
     },

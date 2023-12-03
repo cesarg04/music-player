@@ -20,6 +20,7 @@ const GridItem:FC<IGridItemProps> = (props) => {
         if (props.lg) stl.push(breakpointsStyles.lg[props.lg] )
         if (props.xl) stl.push(breakpointsStyles.xl[props.xl] )
         if(props.styles) stl.push(props.styles)
+        stl.push('col-span-12')
         return stl.join(' ')
         
     }, [props])
