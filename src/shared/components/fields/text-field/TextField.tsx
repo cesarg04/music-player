@@ -33,7 +33,11 @@ const TextField:FC<ITextFieldProps> = (props) => {
         fullWidth: true,
         labelPlacement: 'outside',
         radius: 'lg',
-        className: 'my-2',
+        className: 'my-2 border-neutral-600',
+        variant: 'bordered',
+        color: 'primary',
+        isClearable: true,
+        
     }
     return (
         <Input           

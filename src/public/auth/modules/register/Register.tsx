@@ -7,6 +7,7 @@ import validationSchema from "./util/validation"
 import { Button, Image } from "@nextui-org/react"
 import ImageLogo from '@assets/images/logoMusic.png'
 import SimpleText from "@/shared/components/typographi/SimpleText"
+import SimpleButton from "@/shared/components/button/SimpleButton"
 
 const Register = () => {
 
@@ -27,13 +28,12 @@ const Register = () => {
         >
             <GridItem
                 sm={12}
-                lg={4}
-                styles="flex flex-col justify-center items-center gap-10"
+                lg={6}
+                styles="flex flex-col justify-center items-center gap-10 rounded-xl shadow-xl py-20 px-10 shadow-yellow-800	sm:col-span-12"
             >
                 <SimpleText
                     size="7xl"
                     family="main"
-                    color="text-red-500"
                 >
                     Music Player
                 </SimpleText>
@@ -41,7 +41,7 @@ const Register = () => {
             </GridItem>
             <GridItem
                 sm={12}
-                lg={8}
+                lg={6}
             >
 
                 <Formik {...setup} >
@@ -51,8 +51,7 @@ const Register = () => {
                             <Form className={containerStyles} >
                                 <SimpleText
                                     size="7xl"
-                                    family="Inter"
-                                    color="text-red-500"
+                                    family="main"
                                 >
                                     Register
                                 </SimpleText>
@@ -69,9 +68,9 @@ const Register = () => {
                                     type="password"
                                 />
 
-                                <Button type="submit" >
-                                    Register
-                                </Button>
+                                <SimpleButton type="submit" size="md" >
+                                    Registrar
+                                </SimpleButton>
                             </Form>
                         )
                     }}
@@ -87,4 +86,4 @@ const Register = () => {
 
 export default Register;
 
-const containerStyles = `flex flex-col w-full p-10 justify-center items-center rounded-xl shadow-xl gap-5`
+const containerStyles = `flex flex-col w-full p-10 justify-center items-center rounded-xl shadow-xl gap-5 shadow-yellow-800	`

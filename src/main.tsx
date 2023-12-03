@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient} >
       <NextUIProvider>
-        <NextThemesProvider attribute="class" defaultTheme="dark" >
+        <NextThemesProvider attribute="class" defaultTheme="" >
           {/* El browser router es la configurtacion de react-router-dom para manejar las rutas de la aplicacion */}
           <App />
         </NextThemesProvider>

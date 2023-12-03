@@ -3,9 +3,11 @@ import MainRouter from "./router/index.router";
 
 function App() {
   return (
-    <BrowserRouter>
-      <MainRouter />
-    </BrowserRouter>
+    <div className="" >
+      <BrowserRouter>
+        <MainRouter />
+      </BrowserRouter>
+    </div>
   )
 }
 

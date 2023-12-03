@@ -16,7 +16,7 @@ const SimpleText:FC<ISimpleTextProps> = (props) => {
         let stlArr = []
         if (props.size) stlArr.push(sizesStyles[props.size])
         if (props.family) stlArr.push(fontsStyles[props.family])
-        if (props.color) stlArr.push(props.color)
+        props.color ? stlArr.push(props.color) :  stlArr.push('text-primary-800')
         if (props.weight)  stlArr.push(weightStyles[props.weight])
         return stlArr.join(' ')
 
