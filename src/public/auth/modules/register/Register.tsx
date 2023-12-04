@@ -1,22 +1,31 @@
 import TextField from "@/shared/components/fields/text-field/TextField"
 import GridContainer from "@/shared/components/grid/GridContainer"
 import GridItem from "@/shared/components/grid/GridItem"
-import { Form, Formik, FormikConfig } from "formik"
+import { Form, Formik, FormikConfig, useFormikContext } from "formik"
 import { I_Register_Fields, registerUserInitialValues } from "./util/form.util"
 import validationSchema from "./util/validation"
 import { Button, Image } from "@nextui-org/react"
 import ImageLogo from '@assets/images/logoMusic.png'
 import SimpleText from "@/shared/components/typographi/SimpleText"
 import SimpleButton from "@/shared/components/button/SimpleButton"
+import { registerService } from "@/shared/services/auth/register.service"
+import { useEffect } from "react"
 
 const Register = () => {
+    const { useRegisterMutation } = registerService()
+    const onSubmit = (values: I_Register_Fields) => {
+        useRegisterMutation.mutate({
+            body: { ...values }
+        })
+    }
 
 
     const setup: FormikConfig<I_Register_Fields> = {
         initialValues: registerUserInitialValues,
-        onSubmit: (values, formikFields) => { console.log(values) },
+        onSubmit: (values, formikFields) => { onSubmit(values) },
         validationSchema: validationSchema
     }
+
 
     return (
         <GridContainer
@@ -47,6 +56,25 @@ const Register = () => {
                 <Formik {...setup} >
                     {(formikProps) => {
 
+                        const ctx = formikProps
+                        useEffect(() => {
+                            if (useRegisterMutation.isError) {
+
+                                if (useRegisterMutation.variables?.body) {
+                                    for (const item in useRegisterMutation.variables?.body) {
+                                        if (useRegisterMutation.variables?.body.hasOwnProperty(item)) {
+
+                                            if (useRegisterMutation.error.response.data.message.includes(item.trim())) {
+                                                ctx.setFieldError(item, useRegisterMutation.error.response.data.message)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+
+                        }, [useRegisterMutation])
+
                         return (
                             <Form className={containerStyles} >
                                 <SimpleText
@@ -59,6 +87,9 @@ const Register = () => {
                                     name="name"
                                     label="Nombre completo" />
                                 <TextField
+                                    name="username"
+                                    label="Usuario" />
+                                <TextField
                                     name="email"
                                     label="Correo electronico"
                                     type="email" />
@@ -68,7 +99,11 @@ const Register = () => {
                                     type="password"
                                 />
 
-                                <SimpleButton type="submit" size="md" >
+                                <SimpleButton
+                                    type="submit"
+                                    size="md"
+                                    isLoading={useRegisterMutation.isLoading}
+                                >
                                     Registrar
                                 </SimpleButton>
                             </Form>

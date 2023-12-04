@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 
 
 const RegisterPage = lazy(() => import("@public/auth/modules/register/Register"))
+const LoginPage = lazy(() => import("@public/auth/modules/login/Login"))
 
 const PublicModules = () => {
 
@@ -13,6 +14,7 @@ const PublicModules = () => {
         <PublicErrorBoundary>
             <Routes>
                 <Route path={PATH_ROUTER_AUTH.REGISTER} element={<RegisterPage/>} />
+                <Route path={PATH_ROUTER_AUTH.LOGIN} element={<LoginPage/>} />
             </Routes>
         </PublicErrorBoundary>
     )
