@@ -1,7 +1,18 @@
+import GridContainer from "@/shared/components/grid/GridContainer";
+import GridItem from "@/shared/components/grid/GridItem";
 
 const Login = () => {
+
+
     return (
-        <div>Login</div>
+        <GridContainer >
+            <GridItem sm={6} xl={6} >  
+                Hello word
+            </GridItem>
+            <GridItem sm={6} xl={6} >
+                Hello word
+            </GridItem>
+        </GridContainer>
     )
 }
 

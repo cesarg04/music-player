@@ -11,7 +11,6 @@ interface ITextFieldProps extends InputProps {
 }
 
 const TextField:FC<ITextFieldProps> = (props) => {
-    const [isInvalid, setIsInvalid] = useState(false)
     const [ field, meta, helpers ] = useField(props.name)
 
     const handleChange = (text: string) => {
@@ -19,8 +18,8 @@ const TextField:FC<ITextFieldProps> = (props) => {
     }
 
     useEffect(() => {
-        console.log({ field: field.name, touched: meta.touched, error: meta.error });
-    }, [meta])
+        // console.log({ field: field.name, touched: meta.touched, error: meta.error });
+    }, [])
 
     const setup: InputProps = {
         id: `${ props.name }-id`,
